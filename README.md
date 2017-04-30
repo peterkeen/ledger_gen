@@ -23,7 +23,7 @@ Or install it yourself as:
 ```ruby
 LedgerGen::Ledger.build do |ledger|
   ledger.transaction do |txn|
-    txn.cleared
+    txn.cleared!
     txn.date Date.parse('2017/04/30')
     txn.payee "DTE Energy"
     txn.posting do |post|
