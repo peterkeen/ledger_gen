@@ -21,7 +21,7 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-LedgerGen::Journal.build do |journal|
+j = LedgerGen::Journal.build do |journal|
   journal.transaction do |txn|
     txn.cleared!
     txn.date Date.parse('2017/04/30')
@@ -34,6 +34,9 @@ LedgerGen::Journal.build do |journal|
     txn.posting 'Assets:PNC:Checking', -190.0
   end
 end
+
+puts j.pretty_print # ledger binary required
+puts j.to_s # not pretty, but it works without the binary
 ```
 
 ## Development
