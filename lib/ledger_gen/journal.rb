@@ -22,5 +22,13 @@ module LedgerGen
     def to_s
       @transactions.map(&:to_s).join("\n\n")
     end
+
+    def pretty_print
+      IO.popen("ledger -f - print", mode='r+') do |io|
+        io.write to_s
+        io.close_write
+        io.read
+      end
+    end
   end
 end
