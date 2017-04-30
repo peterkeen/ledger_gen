@@ -21,8 +21,8 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-LedgerGen::Ledger.build do |ledger|
-  ledger.transaction do |txn|
+LedgerGen::Journal.build do |journal|
+  journal.transaction do |txn|
     txn.cleared!
     txn.date Date.parse('2017/04/30')
     txn.payee "DTE Energy"

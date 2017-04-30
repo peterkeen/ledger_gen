@@ -2,6 +2,7 @@ module LedgerGen
   class Transaction
     def initialize
       @postings = []
+      @comments = []
     end
 
     def date(date)
@@ -16,14 +17,31 @@ module LedgerGen
       @cleared = true
     end
 
-    def posting
+    def posting(*args)
       post = Posting.new
       @postings << post
-      yield post
+
+      if args.length > 0
+        post.account args.shift
+        if args.length > 0
+          post.amount args[0]
+        end
+      else
+        yield post
+      end
+    end
+
+    def comment(comment)
+      @comments << comment
     end
 
     def to_s
       lines = ["#{date_string}#{cleared_string} #{@payee}"]
+
+      @comments.each do |comment|
+        lines << "    ; #{comment}"
+      end
+
       @postings.each do |post|
         lines << "    " + post.to_s
       end
@@ -34,7 +52,7 @@ module LedgerGen
     private
 
     def date_string
-      @date.strftime("%Y/%m/%d") 
+      @date.strftime("%Y/%m/%d")
     end
 
     def cleared_string
