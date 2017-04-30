@@ -39,6 +39,16 @@ puts j.pretty_print # ledger binary required
 puts j.to_s # not pretty, but it works without the binary
 ```
 
+## Limitations
+
+LedgerGen currently supports a very limited subset of Ledger. In particular, that means:
+
+* Only supports dollars as commodity
+* Does not insert thousands separator
+* Can't insert journal-level comments
+* No support for building things like periodic entries or automated transactions
+* No support for virtual transactions
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
