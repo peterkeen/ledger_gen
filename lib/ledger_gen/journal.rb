@@ -20,7 +20,7 @@ module LedgerGen
     end
 
     def to_s
-      @transactions.map(&:to_s).join("\n\n")
+      @transactions.map(&:to_s).join("\n\n") + "\n"
     end
 
     def pretty_print
