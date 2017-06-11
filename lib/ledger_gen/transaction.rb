@@ -53,7 +53,7 @@ module LedgerGen
     private
 
     def date_string
-      @date.strftime(date_format)
+      @date.strftime(@date_format)
     end
 
     def cleared_string
