@@ -1,6 +1,7 @@
 module LedgerGen
   class Transaction
-    def initialize
+    def initialize(date_format=nil)
+      @date_format = date_format || '%Y/%m/%d'
       @postings = []
       @comments = []
     end
@@ -52,7 +53,7 @@ module LedgerGen
     private
 
     def date_string
-      @date.strftime("%Y/%m/%d")
+      @date.strftime(date_format)
     end
 
     def cleared_string

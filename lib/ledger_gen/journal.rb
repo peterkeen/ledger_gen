@@ -1,5 +1,7 @@
 module LedgerGen
   class Journal
+    attr_accessor :date_format
+
     def self.build
       journal = new
   
@@ -10,10 +12,11 @@ module LedgerGen
     
     def initialize
       @transactions = []
+      @date_format = '%Y/%m/%d'
     end
 
     def transaction
-      txn = Transaction.new
+      txn = Transaction.new(date_format)
       @transactions << txn
 
       yield txn
