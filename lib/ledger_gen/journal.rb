@@ -27,7 +27,7 @@ module LedgerGen
     end
 
     def pretty_print
-      IO.popen("ledger -f - print", mode='r+') do |io|
+      IO.popen("ledger -y #{date_format} -f - print", mode='r+') do |io|
         io.write to_s
         io.close_write
         io.read
