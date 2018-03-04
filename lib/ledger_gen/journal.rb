@@ -26,8 +26,8 @@ module LedgerGen
       @transactions.map(&:to_s).join("\n\n") + "\n"
     end
 
-    def pretty_print
-      IO.popen("ledger -y #{date_format} -f - print", mode='r+') do |io|
+    def pretty_print(ledger_options='')
+      IO.popen("ledger #{ledger_options} -f - print", mode='r+') do |io|
         io.write to_s
         io.close_write
         io.read
