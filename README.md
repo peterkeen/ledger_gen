@@ -29,7 +29,6 @@ j = LedgerGen::Journal.build do |journal|
     txn.posting do |post|
       post.account 'Expenses:Utils:Energy'
       post.amount 190.0
-      post.currency '$'
     end
     txn.posting 'Assets:PNC:Checking', -190.0
   end
