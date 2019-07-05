@@ -1,3 +1,4 @@
+# typed: true
 module LedgerGen
   class Posting
     def account(account)

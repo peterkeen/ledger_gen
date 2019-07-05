@@ -1,3 +1,4 @@
+# typed: strong
 require "ledger_gen/version"
 
 module LedgerGen

@@ -1,3 +1,4 @@
+# typed: true
 module LedgerGen
   class Journal
     attr_accessor :date_format

@@ -1,3 +1,4 @@
+# typed: true
 module LedgerGen
   class Transaction
     def initialize(date_format=nil)
