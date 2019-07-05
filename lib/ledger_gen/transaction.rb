@@ -1,16 +1,20 @@
 # typed: true
 module LedgerGen
   class Transaction
+    extend T::Sig
+
     def initialize(date_format=nil)
       @date_format = date_format || '%Y/%m/%d'
       @postings = []
       @comments = []
     end
 
+    sig { params(date: T.any(Date, DateTime)).returns(T.any(Date, DateTime)) }
     def date(date)
       @date = date
     end
 
+    sig { params(payee: String).returns(String) }
     def payee(payee)
       @payee = payee
     end

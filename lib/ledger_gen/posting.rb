@@ -1,10 +1,14 @@
 # typed: true
 module LedgerGen
   class Posting
+    extend T::Sig
+
+    sig { params(account: String).returns(String) }
     def account(account)
       @account = account
     end
 
+    sig { params(amount: Numeric).returns(Numeric) }
     def amount(amount)
       @amount = amount
     end
