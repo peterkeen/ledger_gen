@@ -8,6 +8,7 @@
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rake/all/rake.rbi
 #
 # rake-10.5.0
+
 module Rake
   def self.add_rakelib(*files); end
   def self.application; end

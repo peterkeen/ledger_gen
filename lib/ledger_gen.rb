@@ -1,5 +1,6 @@
 # typed: strong
 require "ledger_gen/version"
+require "sorbet-runtime"
 
 module LedgerGen
   # Your code goes here...
