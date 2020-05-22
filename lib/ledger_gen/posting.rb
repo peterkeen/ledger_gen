@@ -7,7 +7,7 @@ module LedgerGen
     sig {void}
     def initialize
       @account = T.let('', String)
-      @amount = T.let(0, Numeric)
+      @amount = T.let(nil, T.nilable(Numeric))
     end
 
     sig { params(account: String).returns(String) }
@@ -15,7 +15,7 @@ module LedgerGen
       @account = account
     end
 
-    sig { params(amount: Numeric).returns(Numeric) }
+    sig { params(amount: Numeric).returns(T.nilable(Numeric)) }
     def amount(amount)
       @amount = amount
     end
